@@ -1,0 +1,68 @@
+console.log("App.js is running");
+
+const app = {
+    title: 'Indecision App!',
+    subtitle: 'Indecision App!',
+    options: ['One ', 'Two']
+}
+//JSX - JavaScript XML
+const template = (
+<div id='template'>
+
+<h1>{app.title}</h1>
+
+{(app.subtitle) && <p>{app.subtitle}</p>}
+{(app.options.length > 0) && <p>Here are your options - {app.options}</p> }
+<p>{app.options.length > 0 ? 'Here are your options: ' : 'NO options'}</p>
+
+<ol>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ol>
+</div>
+);
+
+const user = {
+    name: 'Hecton',
+    age: 32,
+    location: 'Brazil'
+   
+};
+
+const getLocation = (location) => {
+    if(location){
+        return <p> Location: {location}</p>
+    }else{
+        return undefined;
+    }
+}
+const templateTWo = (
+    <div id='templateTwo'>
+        <h1>{user.name ? user.name : 'Unknown'}</h1>
+        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+        <p>{getLocation(user.location)}</p>
+    </div>
+);
+
+
+const getFirstName = (fullName) => {
+    return fullName.split(' ')[0];
+};
+console.log(getFirstName('Hecton DOmignos'));
+
+const shorthandArroFunction = () => 'Hecton Domingos';
+console.log(shorthandArroFunction());
+
+
+
+
+
+
+
+
+const appRoot = document.getElementById('app');
+
+ReactDOM.render(
+    [template,
+     templateTWo], 
+     appRoot);
